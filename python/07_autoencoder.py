@@ -9,7 +9,7 @@ import math
 
 
 # %% Autoencoder definition
-def autoencoder(dimensions=[784, 512, 256, 64]):
+def autoencoder(dimensions=None):
     """Build a deep autoencoder w/ tied weights.
 
     Parameters
@@ -28,6 +28,7 @@ def autoencoder(dimensions=[784, 512, 256, 64]):
     cost : Tensor
         Overall cost to use for training
     """
+    dimensions = [784, 512, 256, 64] if dimensions is None else dimensions
     # %% input to the network
     x = tf.placeholder(tf.float32, [None, dimensions[0]], name='x')
     current_input = x

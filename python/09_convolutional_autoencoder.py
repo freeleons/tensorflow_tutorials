@@ -10,9 +10,9 @@ from libs.utils import corrupt
 
 
 # %%
-def autoencoder(input_shape=[None, 784],
-                n_filters=[1, 10, 10, 10],
-                filter_sizes=[3, 3, 3, 3],
+def autoencoder(input_shape=None,
+                n_filters=None,
+                filter_sizes=None,
                 corruption=False):
     """Build a deep denoising autoencoder w/ tied weights.
 
@@ -41,6 +41,9 @@ def autoencoder(input_shape=[None, 784],
     ValueError
         Description
     """
+    input_shape = [None, 784] if input_shape is None else input_shape
+    n_filters = [1, 10, 10, 10] if n_filters is None else n_filters
+    filter_sizes = [3, 3, 3, 3] if filter_sizes is None else filter_sizes
     # %%
     # input to the network
     x = tf.placeholder(

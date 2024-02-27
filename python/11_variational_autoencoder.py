@@ -9,11 +9,12 @@ from libs.utils import weight_variable, bias_variable, montage_batch
 
 
 # %%
-def VAE(input_shape=[None, 784],
+def VAE(input_shape=None,
         n_components_encoder=2048,
         n_components_decoder=2048,
         n_hidden=2,
         debug=False):
+    input_shape = [None, 784] if input_shape is None else input_shape
     # %%
     # Input placeholder
     if debug:

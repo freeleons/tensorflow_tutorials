@@ -69,7 +69,8 @@ class DatasetSplit(object):
 
 
 class Dataset(object):
-    def __init__(self, Xs, ys, split=[0.8, 0.1, 0.1]):
+    def __init__(self, Xs, ys, split=None):
+        split = [0.8, 0.1, 0.1] if split is None else split
 
         self.all_idxs = []
         self.all_labels = []

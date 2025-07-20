@@ -1,6 +1,6 @@
 import os
-import pickle
 import numpy as np
+import fickling
 
 
 def cifar10_download(dst='cifar10'):
@@ -19,7 +19,7 @@ def cifar10_load(dst='cifar10'):
     Xs = None
     ys = None
     for f in range(1, 6):
-        cf = pickle.load(open(
+        cf = fickling.load(open(
             '%s/data_batch_%d' % (dst, f), 'rb'),
             encoding='LATIN')
         if Xs is not None:
